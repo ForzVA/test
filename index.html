@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lead advisors</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main>
+    <section class="head">
+      <div class="head-container">
+        <a href="/" class="logo">
+          <img src="images/logo.svg" alt="logo" class="logo-img">
+        </a>
+        <div class="head__title">Under Construction</div>
+        <div class="head__subtitle">We're making lots of improvements and will be back soon</div>
+        <dl class="head__timer">
+          <div class="timer__time-block">
+            <dd class="timer__time-block__days"></dd>
+            <dt class="timer__time-block__text text__days"></dt>
+          </div>
+          <div class="timer__time-dots">:</div>
+          <div class="timer__time-block">
+            <dd class="timer__time-block__hrs"></dd>
+            <dt class="timer__time-block__text text__hrs"></dt>
+          </div>
+          <div class="timer__time-dots">:</div>
+          <div class="timer__time-block">
+            <dd class="timer__time-block__minutes"></dd>
+            <dt class="timer__time-block__text text__minutes"></dt>
+          </div>
+          <div class="timer__time-dots">:</div>
+          <div class="timer__time-block">
+            <dd class="timer__time-block__seconds"></dd>
+            <dt class="timer__time-block__text text__seconds"></dt>
+          </div>
+        </dl>
+        <div class="head__check-event">
+          <div class="head__check-event__title">Check our event page when you wait:</div>
+          <button class="head__check-event__button">
+            <div class="check-event__button-text">Go to the event</div>
+            <div src="/images/arrow-right.svg" class="check-event__button-arrow">
+              <img src="/images/arrow-right.svg" />
+            </div>
+          </button>
+        </div>
+      </div>
+      <div class="head__popup-overlay">
+        <div class="head__popup">
+          <div class="head__popup-close" id="head__popup-close"><img src="/images/сross.svg" /></div>
+          <h2 class="head__popup-title"></h2>
+          <p class="head__popup-text"></p>
+          <button class="head__popup__button" id="head__popup__button">Close</button>
+        </div>
+      </div>
+
+    </section>
+    <section>
+
+    </section>
+  </main>
+  <footer class="footer">
+    <form class="footer__subscribe" id="subscribe__form">
+      <input type="email" id="email" class="footer__subscribe__input" placeholder="Enter your Email and get notified" />
+      <button type='submit' class="footer__subscribe__button">
+        <img src="/images/arrow-right.svg" alt="arrow" />
+      </button>
+    </form>
+  </footer>
+  <script src="/js/index.js"></script>
+</body>
+
+</html>
