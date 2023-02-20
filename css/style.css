@@ -42,7 +42,7 @@ input {
 .head::before {
   position: absolute;
   content: "";
-  background-image: url(./images/fullhd-spot-left-up.svg);
+  background-image: url(../images/fullhd-spot-left-up.svg);
   background-repeat: no-repeat;
   background-position: top left;
   top: 0px;
@@ -56,7 +56,7 @@ input {
   height: 285px;
   position: absolute;
   content: "";
-  background-image: url(./images/fullhd-spot-right-up.svg);
+  background-image: url(../images/fullhd-spot-right-up.svg);
   background-repeat: no-repeat;
   background-position: top right;
   top: 0px;
@@ -127,7 +127,7 @@ input {
 
   color: #fff;
   font-size: 16px;
-  background-image: url("/images/timer-bg-big.svg");
+  background-image: url("../images/timer-bg-big.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -277,8 +277,13 @@ input {
 
 /* Tablet */
 @media (max-width: 1200px) {
+  .head {
+    position: static;
+    min-height: 782px;
+  }
+
   .head::before {
-    background-image: url(./images/tablet-spot-left-up.svg);
+    background-image: url(../images/tablet-spot-left-up.svg);
     width: 260px;
     height: 220px;
   }
@@ -286,7 +291,7 @@ input {
   .head::after {
     width: 265px;
     height: 260px;
-    background-image: url(./images/tablet-spot-right-up.svg);
+    background-image: url(../images/tablet-spot-right-up.svg);
   }
 
   .head-container {
@@ -337,7 +342,7 @@ input {
 
     color: #fff;
     font-size: 12px;
-    background-image: url("/images/timer-bg-small.svg");
+    background-image: url("../images/timer-bg-small.svg");
   }
 
   .text__days::before {
@@ -383,9 +388,9 @@ input {
   }
 
   .subscription {
-    position: relative;
+    position: static;
     height: 160px;
-    margin-top: -160px;
+    /* margin-top: -160px; */
   }
 
   .subscription__subscribe__input {
@@ -404,8 +409,13 @@ input {
 }
 /* Mobile */
 @media (max-width: 560px) {
+  .head {
+    position: static;
+    min-height: 700px;
+  }
+
   .head::before {
-    background-image: url(./images/mobile-spot-left-up.svg);
+    background-image: url(../images/mobile-spot-left-up.svg);
     width: 180px;
     height: 150px;
   }
@@ -413,7 +423,7 @@ input {
   .head::after {
     width: 160px;
     height: 160px;
-    background-image: url(./images/mobile-spot-right-up.svg);
+    background-image: url(../images/mobile-spot-right-up.svg);
   }
 
   .head-container {
@@ -451,7 +461,6 @@ input {
 
   .subscription {
     height: 140px;
-    margin-top: -140px;
   }
 
   .subscription__subscribe__input {
