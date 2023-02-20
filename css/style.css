@@ -127,7 +127,7 @@ input {
 
   color: #fff;
   font-size: 16px;
-  background-image: url("./images/timer-bg-big.svg");
+  background-image: url("/images/timer-bg-big.svg");
   background-repeat: no-repeat;
   background-position: center;
 }
@@ -238,7 +238,7 @@ input {
 }
 /* Info pop-up end */
 
-.footer {
+.subscription {
   position: fixed;
   width: 100%;
   height: 192px;
@@ -250,11 +250,11 @@ input {
   background-color: var(--blue-color);
 }
 
-.footer__subscribe {
+.subscription__subscribe {
   position: relative;
 }
 
-.footer__subscribe__input {
+.subscription__subscribe__input {
   width: 440px;
   height: 60px;
   padding-left: 24px;
@@ -264,7 +264,7 @@ input {
   outline: none;
 }
 
-.footer__subscribe__button {
+.subscription__subscribe__button {
   width: 43px;
   height: 43px;
   position: absolute;
@@ -337,7 +337,7 @@ input {
 
     color: #fff;
     font-size: 12px;
-    background-image: url("./images/timer-bg-small.svg");
+    background-image: url("/images/timer-bg-small.svg");
   }
 
   .text__days::before {
@@ -382,18 +382,20 @@ input {
     font-size: 18px;
   }
 
-  .footer {
+  .subscription {
+    position: relative;
     height: 160px;
+    margin-top: -160px;
   }
 
-  .footer__subscribe__input {
+  .subscription__subscribe__input {
     width: 360px;
     height: 40px;
     padding-left: 20px;
     font-size: 14px;
   }
 
-  .footer__subscribe__button {
+  .subscription__subscribe__button {
     width: 33px;
     height: 33px;
     top: 4px;
@@ -447,11 +449,12 @@ input {
     font-size: 18px;
   }
 
-  .footer {
+  .subscription {
     height: 140px;
+    margin-top: -140px;
   }
 
-  .footer__subscribe__input {
+  .subscription__subscribe__input {
     width: 280px;
   }
 }
