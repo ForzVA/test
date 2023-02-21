@@ -1,26 +1,4 @@
-// Получаем время
-const timeDays = document.getElementsByClassName("timer__time-block__days");
-const timeHrs = document.getElementsByClassName("timer__time-block__hrs");
-const timeMinutes = document.getElementsByClassName(
-  "timer__time-block__minutes"
-);
-const timeSeconds = document.getElementsByClassName(
-  "timer__time-block__seconds"
-);
-// Получаем pop-up элементы
-const popup = document.getElementsByClassName("head__popup-overlay");
-const popupTitle = document.getElementsByClassName("head__popup-title");
-const popupText = document.getElementsByClassName("head__popup-text");
-const subscribeForm = document.getElementById("subscribe__form");
-const popupCross = document.getElementById("head__popup-close");
-const popupCloseButton = document.getElementById("head__popup__button");
-
-// Расчёт времени для таймера
-const timeDifference = (dateFrom, dateTo) => {
-  return dateTo - dateFrom;
-};
-
-const end_date = {
+const END_DATE = {
   full_year: "2023",
   month: "05",
   day: "31",
@@ -29,14 +7,33 @@ const end_date = {
   seconds: "00",
 };
 
-let end_date_str = `${end_date.full_year}-${end_date.month}-${end_date.day}T${end_date.hours}:${end_date.minutes}:${end_date.seconds}`;
+const doc = document;
+// Получаем время
+const timeDays = doc.getElementById("timer-days");
+const timeHrs = doc.getElementById("timer-hours");
+const timeMinutes = doc.getElementById("timer-minutes");
+const timeSeconds = doc.getElementById("timer-seconds");
+// Получаем pop-up элементы
+const popup = doc.getElementById("popup-overlay");
+const popupTitle = doc.getElementById("popup-title");
+const popupText = doc.getElementById("popup-text");
+const subscribeForm = doc.getElementById("subscribe__form");
+const popupCross = doc.getElementById("head__popup-close");
+const popupCloseButton = doc.getElementById("head__popup__button");
 
-const timer = setInterval(function () {
+// Расчёт времени для таймера
+const timeDifference = (dateFrom, dateTo) => {
+  return dateTo - dateFrom;
+};
+
+const end_date_str = `${END_DATE.full_year}-${END_DATE.month}-${END_DATE.day}T${END_DATE.hours}:${END_DATE.minutes}:${END_DATE.seconds}`;
+
+requestAnimationFrame(function timer() {
   const now = new Date();
   const date = new Date(end_date_str);
   const ms_left = timeDifference(now, date);
   if (ms_left <= 0) {
-    clearInterval(timer);
+    cancelAnimationFrame(timer);
   } else {
     const res = new Date(ms_left);
     const getDays = Math.floor(ms_left / 1000 / 60 / 60 / 24);
@@ -44,12 +41,13 @@ const timer = setInterval(function () {
     const getMinutes = res.getUTCMinutes();
     const getSeconds = res.getUTCSeconds();
 
-    timeDays[0].innerText = getDays >= 10 ? getDays : "0" + getDays;
-    timeHrs[0].innerHTML = getHours >= 10 ? getHours : "0" + getHours;
-    timeMinutes[0].innerHTML = getMinutes >= 10 ? getMinutes : "0" + getMinutes;
-    timeSeconds[0].innerHTML = getSeconds >= 10 ? getSeconds : "0" + getSeconds;
+    timeDays.innerText = getDays >= 10 ? getDays : "0" + getDays;
+    timeHrs.innerHTML = getHours >= 10 ? getHours : "0" + getHours;
+    timeMinutes.innerHTML = getMinutes >= 10 ? getMinutes : "0" + getMinutes;
+    timeSeconds.innerHTML = getSeconds >= 10 ? getSeconds : "0" + getSeconds;
+    requestAnimationFrame(timer);
   }
-}, 1000);
+});
 
 // AJAX
 const xhr = new XMLHttpRequest();
@@ -57,28 +55,34 @@ const resURL = "____";
 
 subscribeForm.addEventListener("submit", function (event) {
   event.preventDefault();
-  const email = document.getElementById("email").value;
-  const formData = new FormData();
-  formData.append("email", email);
+  let email = document.getElementById("email").value;
+  console.log(email);
   xhr.onreadystatechange = function () {
     // (this.readyState = 4 && this.status == 200)
     if (true) {
-      popupTitle[0].innerHTML = "Success!";
-      popupText[0].innerHTML =
+      popupTitle.innerHTML = "Success!";
+      popupText.innerHTML =
         "You have successfully subscribed to the email newsletter";
     } else {
-      popupTitle[0].innerHTML = "Error!";
-      popupText[0].innerHTML = "Something went wrong";
+      popupTitle.innerHTML = "Error!";
+      popupText.innerHTML = "Something went wrong";
     }
-    popup[0].style.visibility = "visible";
+    popup.style.visibility = "visible";
+    doc.getElementById("email").value = "";
   };
   xhr.open("POST", resURL);
   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhr.send(formData);
+  xhr.send({ email });
 });
 
 const closePopup = () => {
-  popup[0].style.visibility = "hidden";
+  popup.style.visibility = "hidden";
+};
+// 
+doc.onclick = function (e) {
+  if (e.target.className != "head__popup") {
+    popup.style.visibility = "hidden";
+  }
 };
 
 popupCross.addEventListener("click", closePopup);

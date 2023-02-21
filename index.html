@@ -12,61 +12,60 @@
 <body>
   <main>
     <section class="head">
-      <div class="head-container">
-        <a href="/" class="logo">
-          <img src="./images/logo.svg" alt="logo" class="logo-img">
-        </a>
-        <div class="head__title">Under Construction</div>
-        <div class="head__subtitle">We're making lots of improvements and will be back soon</div>
+      <a href="/" class="logo"></a>
+      <div class="timer-container">
+        <h1 class="head__title">Under Construction</h1>
+        <p class="head__subtitle">We're making lots of improvements and will be back soon</p>
         <dl class="head__timer">
           <div class="timer__time-block">
-            <dd class="timer__time-block__days"></dd>
+            <dd class="timer__time-block__time" id="timer-days"></dd>
             <dt class="timer__time-block__text text__days"></dt>
           </div>
           <div class="timer__time-dots">:</div>
           <div class="timer__time-block">
-            <dd class="timer__time-block__hrs"></dd>
+            <dd class="timer__time-block__time" id="timer-hours"></dd>
             <dt class="timer__time-block__text text__hrs"></dt>
           </div>
           <div class="timer__time-dots">:</div>
           <div class="timer__time-block">
-            <dd class="timer__time-block__minutes"></dd>
+            <dd class="timer__time-block__time" id="timer-minutes"></dd>
             <dt class="timer__time-block__text text__minutes"></dt>
           </div>
           <div class="timer__time-dots">:</div>
           <div class="timer__time-block">
-            <dd class="timer__time-block__seconds"></dd>
+            <dd class="timer__time-block__time" id="timer-seconds"></dd>
             <dt class="timer__time-block__text text__seconds"></dt>
           </div>
         </dl>
         <div class="head__check-event">
           <div class="head__check-event__title">Check our event page when you wait:</div>
-          <button class="head__check-event__button">
+          <a target="_blank" class="head__check-event__button" href="https://ru.wikipedia.org/wiki/Заглавная_страница">
             <div class="check-event__button-text">Go to the event</div>
-            <div src="./images/arrow-right.svg" class="check-event__button-arrow">
-              <img src="./images/arrow-right.svg" />
-            </div>
-          </button>
+            <img src="./images/arrow-right.svg" class="check-event__button-arrow" />
+          </a>
         </div>
       </div>
-      <div class="head__popup-overlay">
+
+      <div class="subscription">
+        <form class="subscription__subscribe" id="subscribe__form">
+          <input type="email" id="email" class="subscription__subscribe__input"
+            placeholder="Enter your Email and get notified" />
+          <button type='submit' class="subscription__subscribe__button">
+            <img src="./images/arrow-right-small.svg" alt="arrow" />
+          </button>
+        </form>
+      </div>
+
+      <div class="head__popup-overlay" id="popup-overlay">
         <div class="head__popup">
           <div class="head__popup-close" id="head__popup-close"><img src="./images/сross.svg" /></div>
-          <h2 class="head__popup-title"></h2>
-          <p class="head__popup-text"></p>
+          <h2 class="head__popup-title" id="popup-title"></h2>
+          <p class="head__popup-text" id="popup-text"></p>
           <button class="head__popup__button" id="head__popup__button">Close</button>
         </div>
       </div>
     </section>
-    <section class="subscription">
-      <form class="subscription__subscribe" id="subscribe__form">
-        <input type="email" id="email" class="subscription__subscribe__input"
-          placeholder="Enter your Email and get notified" />
-        <button type='submit' class="subscription__subscribe__button">
-          <img src="./images/arrow-right.svg" alt="arrow" />
-        </button>
-      </form>
-    </section>
+
     <section>
       1 2 3
       <br>
