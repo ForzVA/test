@@ -67,7 +67,7 @@ subscribeForm.addEventListener("submit", function (event) {
       popupTitle.innerHTML = "Error!";
       popupText.innerHTML = "Something went wrong";
     }
-    popup.style.visibility = "visible";
+    popup.style.display = "block";
     doc.getElementById("email").value = "";
   };
   xhr.open("POST", resURL);
@@ -76,12 +76,12 @@ subscribeForm.addEventListener("submit", function (event) {
 });
 
 const closePopup = () => {
-  popup.style.visibility = "hidden";
+  popup.style.display = "none";
 };
-// 
+
 doc.onclick = function (e) {
   if (e.target.className != "head__popup") {
-    popup.style.visibility = "hidden";
+    popup.style.display = "none";
   }
 };
 

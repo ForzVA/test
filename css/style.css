@@ -76,6 +76,13 @@ a {
   background-image: url(../images/logo.svg);
 }
 
+.timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+}
+
 .head__title {
   margin-bottom: 7px;
   font-family: "Poppins-Bold";
@@ -92,13 +99,6 @@ a {
 
   font-size: 18px;
   color: var(--text-grey-color);
-}
-
-.timer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
 }
 
 .head__timer {
@@ -149,8 +149,11 @@ a {
   content: "seconds";
 }
 
-.head__check-event {
-  margin-top: 0px;
+.head__check-event__title {
+  margin-bottom: 15px;
+
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .head__check-event__button {
@@ -167,13 +170,13 @@ a {
   border-radius: 40px;
   background-color: var(--blue-light-color);
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.head__check-event__title {
-  margin-bottom: 15px;
-
-  font-size: 18px;
-  color: rgba(0, 0, 0, 0.8);
+.head__check-event__button:hover {
+  background-color: var(--blue-color);
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 .check-event__button-text {
@@ -183,6 +186,7 @@ a {
 }
 /* Info pop-up */
 .head__popup-overlay {
+  display: none;
   position: fixed;
   background: rgba(22, 44, 78, 0.6);
   top: 0;
@@ -190,7 +194,6 @@ a {
   left: 0;
   right: 0;
   z-index: 1;
-  visibility: hidden;
 }
 
 .head__popup {
@@ -215,8 +218,14 @@ a {
   text-align: right;
 }
 
-.head__popup-close img {
+.head__popup-close svg {
   cursor: pointer;
+}
+
+.head__popup-close:hover > svg {
+  stroke: red;
+  fill: red;
+  fill-opacity: 1;
 }
 
 .head__popup-title {
@@ -240,6 +249,12 @@ a {
   background-color: #1d4169;
   border-radius: 40px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.head__popup__button:hover {
+  background-color: #132b46;
+  transition: 0.3s;
 }
 /* Info pop-up end */
 
@@ -258,10 +273,6 @@ a {
   position: relative;
 }
 
-.subscription__subscribe__button {
-  padding: 8.5px;
-}
-
 .subscription__subscribe__input {
   width: 440px;
   height: 60px;
@@ -273,14 +284,23 @@ a {
 }
 
 .subscription__subscribe__button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 43px;
   height: 43px;
-  position: absolute;
   top: 8px;
   right: 8px;
   background-color: var(--red-color);
   border-radius: 50%;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.subscription__subscribe__button:hover {
+  background-color: rgb(158, 0, 0);
+  transition: 0.3s;
 }
 
 /* Tablet */
@@ -299,7 +319,11 @@ a {
 
   .logo {
     margin-top: 100px;
-    /* margin-bottom: 100px; */
+  }
+
+  .timer-container {
+    margin-left: 20px;
+    margin-right: 20px;
   }
 
   .head__title {
@@ -311,11 +335,6 @@ a {
     width: 285px;
     margin-bottom: 40px;
     font-size: 16px;
-  }
-
-  .timer-container {
-    margin-left: 20px;
-    margin-right: 20px;
   }
 
   .head__timer {
@@ -391,7 +410,6 @@ a {
   .subscription {
     position: static;
     height: 160px;
-    /* margin-top: -160px; */
   }
 
   .subscription__subscribe__input {
@@ -406,6 +424,11 @@ a {
     height: 33px;
     top: 4px;
     right: 4px;
+  }
+
+  .subscription__subscribe__button svg {
+    width: 15px;
+    height: 15px;
   }
 }
 /* Mobile */
